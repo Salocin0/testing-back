@@ -39,7 +39,7 @@ class ProductControler {
         name: 'Error Del Servidor',
         cause: 'Ocurrió un error inesperado en el servidor. La operación no pudo completarse.',
         message: 'Lo sentimos, ha ocurrido un error inesperado en el servidor. Por favor, contacta al equipo de soporte.',
-        code: EErrors.ERROR_INTERNO_SERVIDOR,
+        code: EErrors.SERVER_ERROR,
       });
     }
   }
