@@ -60,14 +60,15 @@ class UserController {
 
   async create(req, res) {
     try {
-      const { firstName, lastName, email } = req.body;
-      const userCreated = await userService.createUser(firstName, lastName, email);
+      const { firstName, lastName, email,age,password } = req.body;
+      const userCreated = await userService.createUser(firstName, lastName, email,age,password);
       return res.status(201).json({
         status: 'success',
         msg: 'user created',
         data: userCreated,
       });
     } catch (e) {
+      console.log(e)
       CustomError.createError({
         name: 'Error Del Servidor',
         cause: 'Ocurrió un error inesperado en el servidor. La operación no pudo completarse.',
@@ -133,7 +134,7 @@ class UserController {
         name: 'Error Del Servidor',
         cause: 'Ocurrió un error inesperado en el servidor. La operación no pudo completarse.',
         message: 'Lo sentimos, ha ocurrido un error inesperado en el servidor. Por favor, contacta al equipo de soporte.',
-        code: EErrors.ERROR_INTERNO_SERVIDOR,
+        code: EErrors.SERVER_ERROR,
       });
     }
   }

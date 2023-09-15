@@ -11,8 +11,8 @@ class ModelUsuario {
     return user;
   }
 
-  async createUser(firstName, lastName, email) {
-    const userCreated = await UserModel.create({ firstName, lastName, email });
+  async createUser(firstName, lastName, email,age,password) {
+    const userCreated = await UserModel.create({ firstName, lastName, email,age,password });
     return userCreated;
   }
   

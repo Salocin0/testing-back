@@ -73,7 +73,7 @@ class ProductControler {
 
   async create(req, res) {
     try {
-      const owner = req.user.email
+      const owner = req.user.email 
       const { title, description, code, price, status = true, stock, category, thumbnails } = req.body;
       const ProductCreated = await productService.createProduct(title, description, code, price, status, stock, category, thumbnails,owner);
       if (ProductCreated.code === 400) {
@@ -100,6 +100,7 @@ class ProductControler {
         }
       }
     } catch (e) {
+      console.log(e)
       CustomError.createError({
         name: 'Error Del Servidor',
         cause: 'Ocurrió un error inesperado en el servidor. La operación no pudo completarse.',
@@ -120,6 +121,7 @@ class ProductControler {
         data: productUptaded,
       });
     } catch (e) {
+      console.log(e)
       CustomError.createError({
         name: 'Error Del Servidor',
         cause: 'Ocurrió un error inesperado en el servidor. La operación no pudo completarse.',
